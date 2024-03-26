@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+body {
+    font-family: 'Futura';
+    background: linear-gradient(#ffd6e8, #ff7096, #ff4773, #ff004f);
+    background-size: 400% 400%;
+}
+
+.zaklad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 100vh;
+}
+
+.logout {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}

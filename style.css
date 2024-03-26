@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+body {
+    font-family: 'Futura';
+    background: linear-gradient(#ffd6e8, #ff7096, #ff4773, #ff004f);
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.zaklad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+}
+
+form h1{
+    text-align: center;
+    margin: 2rem auto 2rem auto;
+    color:white;
+}
+
+form {
+    width: 25vw;
+    height: auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    display: flex;
+    margin: 1rem auto;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input {
+    padding: 0 1rem;
+    height: 2.5rem;
+    width: 80%;
+    justify-content: center;
+    margin: 0.5rem auto;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-family: 'Futura';
+    border: solid 2px rgba(255, 255, 255, 0);
+    transition: all 0.25s;
+}   
+
+button {
+    margin: 2rem auto 0.5rem auto ;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-family: 'Futura';
+    border: solid 2px rgba(255, 255, 255, 0);
+    transition: all 0.5s;
+    background-color: white;
+    font-weight: 600;
+}
+
+button:hover {
+    background: white;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: #797979;
+    cursor: pointer;
+    font-weight: 600;
+
+}
+
+a {
+    margin: 0.25rem auto;
+    padding: 0.75rem 2.5rem;
+    border-radius: 8px;
+    font-family: 'Futura';
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+p {
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+.error-message {
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #ff004f; 
+    padding: 10px 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+}
