@@ -49,7 +49,7 @@ $result = $conn->query($sql);
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Username</th>
+                    <th>Name</th>
                     <th>Age</th>
                     <th>Position</th>
                     <th>Team</th>
