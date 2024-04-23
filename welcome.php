@@ -20,7 +20,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM t_football";
+$sort_by = "id";
+$order = "ASC";
+
+if(isset($_GET['sort_by'])) {
+    $sort_by = $_GET['sort_by'];
+    $order = $_GET['order'];
+}
+
+$sql = "SELECT * FROM t_football ORDER BY $sort_by $order";
 $result = $conn->query($sql);
 ?>
 
@@ -45,6 +53,24 @@ $result = $conn->query($sql);
             ?>
         </div>
         <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
+
+        <form method="GET" action="">
+            <label for="sort_by">Sort By:</label>
+            <select name="sort_by" id="sort_by">
+                <option value="id">ID</option>
+                <option value="meno">Name</option>
+                <option value="vek">Age</option>
+                <option value="pozicia">Position</option>
+                <option value="tim">Team</option>
+            </select>
+            <label for="order">Order:</label>
+            <select name="order" id="order">
+                <option value="ASC">Ascending</option>
+                <option value="DESC">Descending</option>
+            </select>
+            <button type="submit">Sort</button>
+        </form>
+
         <table>
             <thead>
                 <tr>
@@ -83,3 +109,4 @@ $result = $conn->query($sql);
 <?php
 $conn->close();
 ?>
+
