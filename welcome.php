@@ -54,20 +54,24 @@ $result = $conn->query($sql);
         </div>
         <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
 
-        <form method="GET" action="">
-            <label for="sort_by">Sort By:</label>
-            <select name="sort_by" id="sort_by">
-                <option value="id">ID</option>
-                <option value="meno">Name</option>
-                <option value="vek">Age</option>
-                <option value="pozicia">Position</option>
-                <option value="tim">Team</option>
-            </select>
-            <label for="order">Order:</label>
-            <select name="order" id="order">
-                <option value="ASC">Ascending</option>
-                <option value="DESC">Descending</option>
-            </select>
+        <form class="sorting-form" method="GET" action="">
+            <div>
+                <label for="sort_by">Sort By:</label>
+                <select name="sort_by" id="sort_by">
+                    <option value="id">ID</option>
+                    <option value="meno">Name</option>
+                    <option value="vek">Age</option>
+                    <option value="pozicia">Position</option>
+                    <option value="tim">Team</option>
+                </select>
+            </div>
+            <div>
+                <label for="order">Order:</label>
+                <select name="order" id="order">
+                    <option value="ASC">Ascending</option>
+                    <option value="DESC">Descending</option>
+                </select>
+            </div>
             <button type="submit">Sort</button>
         </form>
 
@@ -109,4 +113,3 @@ $result = $conn->query($sql);
 <?php
 $conn->close();
 ?>
-
