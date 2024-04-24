@@ -47,6 +47,40 @@ h1 {
     margin-bottom: 20px;
 }
 
+.sorting-form {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.sorting-form div {
+    margin-right: 10px;
+}
+
+.sorting-form label {
+    font-weight: bold;
+}
+
+.sorting-form select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sorting-form button {
+    padding: 6px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sorting-form button:hover {
+    background-color: #45a049;
+}
+
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -81,3 +115,4 @@ table th {
 .logout-link a:hover {
     text-decoration: underline;
 }
+
