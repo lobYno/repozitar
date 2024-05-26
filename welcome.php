@@ -28,7 +28,10 @@ if(isset($_GET['sort_by'])) {
     $order = $_GET['order'];
 }
 
-$sql = "SELECT * FROM t_football ORDER BY $sort_by $order";
+$sql = "SELECT t_football.id, t_football.meno, t_football.vek, t_football.tim, t_categories.name AS category_name
+        FROM t_football
+        LEFT JOIN t_categories ON t_football.pozicia = t_categories.id
+        ORDER BY $sort_by $order";
 $result = $conn->query($sql);
 ?>
 
@@ -61,8 +64,8 @@ $result = $conn->query($sql);
                     <option value="id">ID</option>
                     <option value="meno">Name</option>
                     <option value="vek">Age</option>
-                    <option value="pozicia">Position</option>
                     <option value="tim">Team</option>
+                    <option value="category_name">Category</option>
                 </select>
             </div>
             <div>
@@ -81,8 +84,8 @@ $result = $conn->query($sql);
                     <th>ID</th>
                     <th>Name</th>
                     <th>Age</th>
-                    <th>Position</th>
                     <th>Team</th>
+                    <th>Category</th>
                 </tr>
             </thead>
             <tbody>
@@ -93,8 +96,8 @@ $result = $conn->query($sql);
                         echo "<td>".$row['id']."</td>";
                         echo "<td>".$row['meno']."</td>";
                         echo "<td>".$row['vek']."</td>";
-                        echo "<td>".$row['pozicia']."</td>";
                         echo "<td>".$row['tim']."</td>";
+                        echo "<td>".$row['category_name']."</td>";
                         echo "</tr>";
                     }
                 } else {
