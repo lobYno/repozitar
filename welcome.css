@@ -80,7 +80,6 @@ h1 {
     background-color: #45a049;
 }
 
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -101,6 +100,22 @@ table th {
     overflow-x: auto;
 }
 
+.statistics {
+    margin-bottom: 20px;
+}
+
+.statistics h2, .statistics h3 {
+    margin-bottom: 10px;
+}
+
+.statistics h3 {
+    margin-top: 15px;
+}
+
+.statistics p {
+    margin-bottom: 5px;
+}
+
 .logout-link {
     text-align: center;
     margin-top: 20px;
@@ -115,4 +130,3 @@ table th {
 .logout-link a:hover {
     text-decoration: underline;
 }
-
