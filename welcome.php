@@ -33,6 +33,20 @@ $sql = "SELECT t_football.id, t_football.meno, t_football.vek, t_football.tim, t
         LEFT JOIN t_categories ON t_football.pozicia = t_categories.id
         ORDER BY $sort_by $order";
 $result = $conn->query($sql);
+
+$stats_sql = "SELECT MAX(vek) AS max_age, MIN(vek) AS min_age, AVG(vek) AS avg_age, COUNT(*) AS total_players FROM t_football";
+$stats_result = $conn->query($stats_sql);
+$stats = $stats_result->fetch_assoc();
+
+$players_per_category_sql = "SELECT t_categories.name AS category_name, COUNT(*) AS count 
+                             FROM t_football 
+                             LEFT JOIN t_categories ON t_football.pozicia = t_categories.id 
+                             GROUP BY t_categories.name";
+$players_per_category_result = $conn->query($players_per_category_sql);
+$players_per_category = [];
+while ($row = $players_per_category_result->fetch_assoc()) {
+    $players_per_category[$row['category_name']] = $row['count'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -106,6 +120,20 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
+
+        <div class="statistics">
+            <h2>Overall Statistics</h2>
+            <p>Total Players: <?php echo $stats['total_players']; ?></p>
+            <p>Maximum Age: <?php echo $stats['max_age']; ?></p>
+            <p>Minimum Age: <?php echo $stats['min_age']; ?></p>
+            <p>Average Age: <?php echo round($stats['avg_age'], 2); ?></p>
+            <h3>Players per Category</h3>
+            <p>Strikers: <?php echo $players_per_category['Striker'] ?? 0; ?></p>
+            <p>Midfielders: <?php echo $players_per_category['Midfielder'] ?? 0; ?></p>
+            <p>Defenders: <?php echo $players_per_category['Defender'] ?? 0; ?></p>
+            <p>Goalkeepers: <?php echo $players_per_category['Goalkeeper'] ?? 0; ?></p>
+        </div>
+
         <div class="logout-link">
             <p><a href="logout.php">Logout</a></p>
         </div>
